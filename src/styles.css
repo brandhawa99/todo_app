@@ -1,5 +1,20 @@
+:root {
+  --main-background-color: hsl(234, 56%, 55%);
+  --main-text-color: white;
+  --header-size: 2rem;
+}
+
 body {
   margin: 0;
   padding: 0;
-  background-color: #2b2b2b;
+  background-color: var(--main-background-color);
+}
+.header {
+  display: flex;
+  padding-left: 1.5rem;
+  align-items: center;
+  font-size: var(--header-size);
+  color: var(--main-text-color);
+  border-bottom: 2px solid black;
+  height: 3.5rem;
 }

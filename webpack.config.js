@@ -1,7 +1,9 @@
 const path = require('path');
 
 module.exports = {
+    mode: 'development',
     entry: './src/index.js',
+    devtool: 'inline-source-map',
     output: {
         path: path.resolve(__dirname,'dist'),
         filename: 'main.js'
@@ -12,15 +14,7 @@ module.exports = {
             {
                 test: /\.css$/i,
                 
-                use:[
-                    {
-                        loader: 'css-loader',
-                    },
-                    {
-                        loader:'postcss-loader',
-                    }
-
-                ]
+                use:['style-loader','css-loader','postcss-loader',]
             }
         ]
     }
