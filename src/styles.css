@@ -1,5 +1,7 @@
 :root {
   --main-background-color: hsl(234, 56%, 55%);
+  --main-button-color: hsl(235, 56%, 70%);
+  --main-button-color-hover: hsl(235, 54%, 63%);
   --main-text-color: white;
   --header-size: 2rem;
 }
@@ -17,4 +19,30 @@ body {
   color: var(--main-text-color);
   border-bottom: 2px solid black;
   height: 3.5rem;
+}
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 6rem;
+  padding: 0.5rem;
+}
+.due {
+  color: var(--main-text-color);
+  align-items: center;
+  display: flex;
+  padding-bottom: 1rem;
+  flex-direction: column;
+  gap: 0.25rem;
+  border-bottom: 2px solid black;
+  padding-top: 1rem;
+}
+.due button {
+  border: none;
+  border-radius: 0.25rem;
+  width: 100%;
+  background-color: var(--main-button-color);
+}
+
+.due button:hover {
+  background-color: var(--main-button-color-hover);
 }

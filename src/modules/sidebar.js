@@ -1,10 +1,16 @@
 import '../styles.css'
+import {project_holder} from './project_holder';
 
-export default (function sidebar(){
+const sidebar = (function(){
     const container = document.createElement('div');
 
     const due = document.createElement('div');
+    
+    container.classList.add('sidebar');
+    due.classList.add('due');
 
+
+    due.textContent = "DUE";
     const today = document.createElement('button');
     const tomorrow = document.createElement('button');
     const this_week = document.createElement('button');
@@ -18,8 +24,12 @@ export default (function sidebar(){
     due.appendChild(this_week);
 
     container.appendChild(due);
+    container.appendChild(project_holder);
 
     return container;
 
 
 })()
+export {
+    sidebar
+}
