@@ -141,6 +141,7 @@ html {
   border: 2px black solid;
   border-radius: 0.5rem;
   display: flex;
+  flex-direction: column;
 }
 .todo {
   display: flex;
@@ -153,7 +154,7 @@ html {
   border-bottom: 0.5px black solid;
 }
 .todo_done {
-  inputtext-decoration: line-through;
+  text-decoration: line-through;
 }
 #container {
   height: 100%;

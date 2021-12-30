@@ -1,11 +1,11 @@
 import '../styles.css'
-import { container } from './container.js';
 import { main_frame } from './main_frame.js';
 import { add_project_screen } from './addProject_screen.js';
-
+import { todo_screen } from './todo_screen';
 
 //sidebar used to access projects and has a add project button that will set the screen to add project and then append the project to the projet holder 
 const sidebar = (function () {
+
 
     //holds all the elemnts that are going to be in the sidebar
     const sidebar_container = document.createElement('div');
@@ -34,15 +34,37 @@ const sidebar = (function () {
 
     //function to add project folders to the sidebar
     const mkFolder = (title) =>{
-
-        const folder = document.createElement('div');
-        folder.dataset.projectName = title
-        folder.textContent = title; 
-        folder.classList.add('folder');
-
-         projects_contianer.appendChild(folder);
+        if(title == ""){
+            return; 
+        } 
+        localStorage.setItem(title,JSON.stringify({title: title,todos:[]}))
+        renderProjects();
 
     }
+    const renderProjects = () =>{
+        let keys = Object.keys(localStorage)
+        projects_contianer.innerHTML = ""; 
+        for(let i = 0; i<keys.length; i++){
+            const folder = document.createElement('div');
+            folder.textContent = keys[i];
+            folder.dataset.projectName = keys[i]; 
+            folder.classList.add('folder');
+            folder.addEventListener('click',(e)=>{
+                let key = JSON.parse(localStorage.getItem(folder.dataset.projectName))
+                console.log(key);
+                main_frame.setFrame(todo_screen.container())
+
+            })
+            projects_contianer.appendChild(folder);
+
+        }
+    }
+
+    const renderPage = (key) =>{
+        
+
+    }
+
     mkFolder("Default")
 
     //add stuff to sidebar container
@@ -54,7 +76,7 @@ const sidebar = (function () {
 
     return {
         sidebar_container,
-        mkFolder
+        mkFolder,
     }
     
 
