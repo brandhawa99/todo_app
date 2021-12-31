@@ -2,6 +2,7 @@ import '../styles.css'
 import { main_frame } from './main_frame.js';
 import { add_project_screen } from './addProject_screen.js';
 import { todo_screen } from './todo_screen';
+import { render_page } from './renderPage.js';
 
 //sidebar used to access projects and has a add project button that will set the screen to add project and then append the project to the projet holder 
 const sidebar = (function () {
@@ -52,7 +53,7 @@ const sidebar = (function () {
             folder.addEventListener('click',(e)=>{
                 let key = JSON.parse(localStorage.getItem(folder.dataset.projectName))
                 console.log(key);
-                main_frame.setFrame(todo_screen.container())
+                main_frame.setFrame(render_page(key))
 
             })
             projects_contianer.appendChild(folder);
@@ -60,12 +61,10 @@ const sidebar = (function () {
         }
     }
 
-    const renderPage = (key) =>{
-        
+    window.addEventListener('load',() =>{
+        renderProjects()
+    })
 
-    }
-
-    mkFolder("Default")
 
     //add stuff to sidebar container
     sidebar_container.appendChild(add_project_container);

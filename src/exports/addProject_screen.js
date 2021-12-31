@@ -19,6 +19,10 @@ const add_project_screen  = (()=>{
 
     //button add event listen 
     button.addEventListener('click',() =>{
+        if(check_exsits(input.value)){
+            console.log("IT EXISTS")
+            return 
+        }
         sidebar.mkFolder(input.value);
         input.value = ""; 
 
@@ -28,6 +32,16 @@ const add_project_screen  = (()=>{
     container.appendChild(label);
     container.appendChild(input);
     container.appendChild(button);
+
+    const check_exsits = (project) =>{
+        let keys = Object.keys(localStorage)
+        for(let i = 0; i<keys.length; i++){
+            if(keys[i] == project ){
+                return true; 
+            }
+        }
+
+    }
 
 
 

@@ -144,14 +144,18 @@ html {
   flex-direction: column;
 }
 .todo {
+  width: 100%;
   display: flex;
   align-items: center;
-  gap: 1rem;
+  justify-content: flex-start;
 }
 .todo input {
   background-color: var(--screen-bg-color);
   border: none;
   border-bottom: 0.5px black solid;
+}
+.todo :nth-child(2) {
+  width: 100%;
 }
 .todo_done {
   text-decoration: line-through;
